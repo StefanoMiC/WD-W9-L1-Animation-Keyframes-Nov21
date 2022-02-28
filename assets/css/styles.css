@@ -1,0 +1,146 @@
+:root {
+  --strive-primary: #00ff84;
+  --strive-dark: #0d0e0e;
+  --sans-serif: "Montserrat", sans-serif;
+  --serif: "EB Garamond", serif;
+}
+
+body {
+  color: white;
+  font-family: var(--sans-serif);
+  background-color: #333535;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--serif);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 2s 2s backwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 0% 10%;
+  }
+  50% {
+    background-position: 30% 10%;
+    background-size: 150%;
+  }
+  100% {
+    background-position: 0% 10%;
+  }
+}
+
+main {
+  background-image: url(../smile.jpg);
+  background-size: 130%;
+  /* background-position: 0% 10%; */
+  min-height: 100vh;
+  position: relative;
+  animation: bgMove 30s both infinite, fade-in 3s 1s backwards;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.2;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 62px;
+    line-height: 0.9;
+  }
+}
+
+h1 + p {
+  font-size: 22px;
+  margin-top: 2rem;
+}
+
+.btn-strive-primary {
+  background-color: var(--strive-primary);
+  font-weight: 700;
+  font-size: 20px;
+  min-width: 260px;
+}
+
+.hero {
+  animation: slide-in 5s cubic-bezier(1, 0.56, 0.15, 1.01) 1s backwards;
+}
+@keyframes buttonAnimate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 6px 20px rgb(0 0 0 / 0.3);
+    transform: scale(1.05);
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* .hero button {
+} */
+
+.hero button:hover {
+  background-image: linear-gradient(
+    160deg,
+    var(--strive-primary) 50%,
+    greenyellow 50%,
+    greenyellow 60%,
+    var(--strive-primary) 60%
+  );
+  background-size: 400%;
+  animation: buttonAnimate 1.5s forwards;
+}
+
+.about-us {
+  padding: 3rem 0;
+  background-color: #0d0e0ec7;
+}
+
+.about-us h4 {
+  font-family: var(--sans-serif);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.about-us h4 span.slash {
+  color: var(--strive-primary);
+}
+
+footer {
+  min-height: 900px;
+}
